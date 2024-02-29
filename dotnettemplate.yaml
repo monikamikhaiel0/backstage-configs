@@ -13,11 +13,11 @@ spec:
   parameters:
     - title: Provide information related to the deployment
       required:
-        - component_id
-        - owner
+        - service_name
+        - owner_squad
       properties:
-        component_id:
-          title: Name
+        service_name:
+          title: Name of the service
           type: string
           description: Unique name of the component
           ui:field: EntityNamePicker
@@ -25,10 +25,10 @@ spec:
           title: Description
           type: string
           description: Help others understand what this website is for.
-        owner:
-          title: Owner
+        owner_squad:
+          title: the squad owning the microservice
           type: string
-          description: Owner of the component
+          description: Owner of the microservice
           ui:field: OwnerPicker
           ui:options:
             allowedKinds:
@@ -63,8 +63,8 @@ spec:
       action: publish:github
       input:
         allowedHosts: ["github.com"]
-        description: This is ${{ parameters.component_id }}
-        repoUrl: ${{ parameters.repoUrl }}
+        description: This is ${{ parameters.service_name }}
+        repoUrl: trella.${{ parameters.service_name }}
 
     - id: register
       name: Register
