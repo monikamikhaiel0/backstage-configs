@@ -1,10 +1,20 @@
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
+  name: engineering
+  description: The infra department
+spec:
+  type: department
+  # Intentional no profile for testing
+  parent: trella
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
   name: trella
-  description: The acme-corp organization
+  description: The trella organization
   links:
-    - url: http://www.acme.com/
+    - url: http://www.trella.app/
       title: Website
     - url: https://meta.wikimedia.org/wiki/
       title: Intranet
@@ -14,7 +24,7 @@ spec:
     displayName: trella
     email: info@example.com
     picture: https://api.dicebear.com/7.x/identicon/svg?seed=Maggie&flip=true&backgroundColor=ffdfbf
-  children: [infrastructure]
+  children: [trella]
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Location
