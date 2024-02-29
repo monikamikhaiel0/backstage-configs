@@ -55,16 +55,16 @@ spec:
         values:
           component_id: ${{ parameters.service_name }}
           description: ${{ parameters.description }}
-          destination: trella.${{ parameters.service_name | parseRepoUrl }}
-          owner: ${{ parameters.owner }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          owner: ${{ parameters.owner_squad }}
 
     - id: publish
       name: Publish
       action: publish:github
       input:
         allowedHosts: ["github.com"]
-        description: This is ${{ parameters.service_name }}
-        repoUrl: trella.${{ parameters.service_name }}
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
 
     - id: register
       name: Register
