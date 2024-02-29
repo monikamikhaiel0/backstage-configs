@@ -2,22 +2,22 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: dotnet-template
-  title: dot net Template
-  description: Create a microservice using dot net 
+  title: dotnet Template
+  description: Create a website powered with Next.js
   tags:
     - recommended
-    - dotnet
+    - react
 spec:
-  owner: sre-team@trella.app
+  owner: web@example.com
   type: website
   parameters:
-    - title: Provide information related to the deployment
+    - title: Provide some simple information
       required:
-        - service_name
-        - owner_squad
+        - component_id
+        - owner
       properties:
-        service_name:
-          title: Name of the service
+        component_id:
+          title: Name
           type: string
           description: Unique name of the component
           ui:field: EntityNamePicker
@@ -25,10 +25,10 @@ spec:
           title: Description
           type: string
           description: Help others understand what this website is for.
-        owner_squad:
-          title: the squad owning the microservice
+        owner:
+          title: Owner
           type: string
-          description: Owner of the microservice
+          description: Owner of the component
           ui:field: OwnerPicker
           ui:options:
             allowedKinds:
@@ -53,10 +53,10 @@ spec:
         copyWithoutRender:
           - .github/workflows/*
         values:
-          component_id: ${{ parameters.service_name }}
+          component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
-          owner: ${{ parameters.owner_squad }}
+          owner: ${{ parameters.owner }}
 
     - id: publish
       name: Publish
