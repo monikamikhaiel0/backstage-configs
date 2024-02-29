@@ -24,7 +24,7 @@ spec:
     displayName: trella
     email: info@example.com
     picture: https://api.dicebear.com/7.x/identicon/svg?seed=Maggie&flip=true&backgroundColor=ffdfbf
-  children: [trella]
+  children: [engineering]
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Location
