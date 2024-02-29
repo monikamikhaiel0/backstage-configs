@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: sre
+  description: site reliability engineers 
+spec:
+  type: team
+  profile:
+    # Intentional no displayName for testing
+    email: team-a@example.com
+    picture: https://api.dicebear.com/7.x/identicon/svg?seed=Fluffy&backgroundType=solid,gradientLinear&backgroundColor=ffd5dc,b6e3f4
+  parent: backstage
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: mahmoud
+spec:
+  profile:
+    # Intentional no displayName for testing
+    email: mahmoud.aboghadeer@trella.app
+    picture: https://api.dicebear.com/7.x/avataaars/svg?seed=Luna&backgroundColor=transparent
+  memberOf: [sre]
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: monika
+spec:
+  profile:
+    # Intentional no displayName for testing
+    email: monika.mikhaiel@trella.app
+    picture: https://api.dicebear.com/7.x/avataaars/svg?seed=Luna&backgroundColor=transparent
+  memberOf: [sre]
